@@ -54,3 +54,4 @@ buck-out/
 
 ----- OWN SETUP -----
 private
+./android/local.properties
