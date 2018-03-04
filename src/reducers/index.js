@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import AuthReducer from './AuthReducer';
-import EmployeeFormReducer from './EmployeeFormReducer';
-import EmployeeReducer from './EmployeeReducer';
+import CoinFormReducer from './CoinFormReducer';
+import CoinListReducer from './CoinListReducer';
+import CoinApiReducer from './CoinApiReducer';
 
 export default combineReducers({
   auth: AuthReducer,
-  employeeForm: EmployeeFormReducer,
-  employees: EmployeeReducer
+  coinForm: CoinFormReducer,
+  coins: CoinListReducer,
+  apiinfo: CoinApiReducer
 });

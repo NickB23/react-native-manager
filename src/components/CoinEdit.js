@@ -1,37 +1,30 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Communications from 'react-native-communications';
-import EmployeeForm from './EmployeeForm';
-import { employeeUpdate, employeeSave, employeeDelete } from '../actions';
+import CoinForm from './CoinForm';
+import { coinUpdate, coinSave, coinDelete } from '../actions';
 import { Card, CardSection, Button, Confirm } from '../components/common';
 
 
-class EmployeeEdit extends Component {
+class CoinEdit extends Component {
   state = { showModal: false }
 
   componentWillMount() {
-    _.each(this.props.employee, (value, prop) => {
-      this.props.employeeUpdate({ prop, value });
+    _.each(this.props.coin, (value, prop) => {
+      this.props.coinUpdate({ prop, value });
     });
   }
 
   onButtonPress() {
-    const { name, phone, shift } = this.props;
+    const { name, qty } = this.props;
 
-    this.props.employeeSave({ name, phone, shift, uid: this.props.employee.uid });
-  }
-
-  onTextPress() {
-    const { phone, shift } = this.props;
-
-    Communications.text(phone, `Your upcoming shift is on ${shift}`);
+    this.props.coinSave({ name, qty, uid: this.props.coin.uid });
   }
 
   onAccept() {
-    const { uid } = this.props.employee;
+    const { uid } = this.props.coin;
 
-    this.props.employeeDelete({ uid });
+    this.props.coinDelete({ uid });
   }
 
   onDecline() {
@@ -41,7 +34,7 @@ class EmployeeEdit extends Component {
   render() {
     return (
       <Card>
-        <EmployeeForm {...this.props} />
+        <CoinForm {...this.props} />
 
         <CardSection>
           <Button onPress={this.onButtonPress.bind(this)}>
@@ -50,14 +43,8 @@ class EmployeeEdit extends Component {
         </CardSection>
 
         <CardSection>
-          <Button onPress={this.onTextPress.bind(this)}>
-            Text Schedule
-          </Button>
-        </CardSection>
-
-        <CardSection>
           <Button onPress={() => this.setState({ showModal: !this.state.showModal })}>
-            Fire Employee
+            Delete Coin
           </Button>
         </CardSection>
 
@@ -74,11 +61,11 @@ class EmployeeEdit extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { name, phone, shift } = state.employeeForm;
+  const { name, qty } = state.coinForm;
 
-  return { name, phone, shift };
+  return { name, qty };
 };
 
 export default connect(mapStateToProps, {
-  employeeUpdate, employeeSave, employeeDelete
-})(EmployeeEdit);
+  coinUpdate, coinSave, coinDelete
+})(CoinEdit);
