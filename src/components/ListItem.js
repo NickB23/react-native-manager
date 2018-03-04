@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Text, TouchableWithoutFeedback, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { connect } from 'react-redux';
-import { getCoinInfo } from '../actions';
+// import { connect } from 'react-redux';
+// import { getCoinInfo } from '../actions';
 import { CardSection } from './common';
 
 class ListItem extends Component {
   componentWillMount() {
-    const { name } = this.props.coin;
+    // const { name } = this.props.coin;
 
-    this.props.getCoinInfo(name);
+    // this.props.getCoinInfo(name);
   }
 
   onRowPress() {
@@ -27,7 +27,7 @@ class ListItem extends Component {
         <View>
           <CardSection>
             <Text style={styles.titleStyle}>
-              {`${qty} ${name}: ${this.props.coinName}`}
+              {`${qty} ${name}: 5000`}
             </Text>
           </CardSection>
         </View>
@@ -43,10 +43,10 @@ const styles = {
   }
 };
 
-const mapStateToProps = (state) => {
-  const apiinfo = state.apiinfo;
+// const mapStateToProps = (state) => {
+//   const apiinfo = state.apiinfo;
+//
+//   return state.apiinfo;
+// };
 
-  return state.apiinfo;
-};
-
-export default connect(mapStateToProps, { getCoinInfo })(ListItem);
+export default ListItem;

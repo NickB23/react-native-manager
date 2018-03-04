@@ -65,18 +65,18 @@ export const coinDelete = ({ uid }) => {
   };
 };
 
-export const getCoinInfo = (coinName) => {
-  return (dispatch) => {
-  fetch(`https://api.coinmarketcap.com/v1/ticker/${coinName}/?convert=EUR`)
-    .then((response) => response.json())
-    .then((responseJson) => {
-      // console.log(responseJson); //TODO: Remove
-      const { price_eur } = responseJson[0];
-      console.log(`price_eur: ${price_eur}`); //TODO: Remove
-      dispatch({ type: GET_COIN_INFO, payload: { coinName, price_eur } });
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  };
-};
+// export const getCoinInfo = (coinName) => {
+//   return (dispatch) => {
+//   fetch(`https://api.coinmarketcap.com/v1/ticker/${coinName}/?convert=EUR`)
+//     .then((response) => response.json())
+//     .then((responseJson) => {
+//       // console.log(responseJson); //TODO: Remove
+//       const { price_eur } = responseJson[0];
+//       console.log(`price_eur: ${price_eur}`); //TODO: Remove
+//       dispatch({ type: GET_COIN_INFO, payload: { coinName, price_eur } });
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });
+//   };
+// };

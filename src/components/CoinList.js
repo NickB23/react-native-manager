@@ -10,22 +10,6 @@ class CoinList extends Component {
   componentWillMount() {
     this.props.coinsFetch();
     this.createDataSource(this.props);
-
-    // this.props.getCoinInfo();
-    // return fetch('https://facebook.github.io/react-native/movies.json')
-    //   .then((response) => response.json())
-    //   .then((responseJson) => {
-    //     console.log(responseJson);
-    //     this.setState({
-    //       isLoading: false,
-    //       dataSource: responseJson.movies,
-    //     }, () => {
-    //
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
   }
 
   componentWillReceiveProps(nextProps) {

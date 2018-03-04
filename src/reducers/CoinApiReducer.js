@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_COIN_INFO:
-    // action.payload === { coinName: 'bitcoin', price_eur: '9299,70' }
+    // action.payload === { coinName: 'bitcoin', price_eur: '9299,79' }
     return { ...state, [action.payload.coinName]: action.payload.price_eur };
     default:
       return state;
