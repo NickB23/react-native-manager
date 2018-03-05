@@ -17,8 +17,8 @@ class ListItem extends Component {
   }
 
   render() {
-    const { name, qty } = this.props.coin;
-    console.log(this.props); //TODO: Remove!!
+    const { name, qty, price } = this.props.coin;
+    // console.log(this.props); //TODO: Remove!!
 
     return (
       <TouchableWithoutFeedback
@@ -27,7 +27,7 @@ class ListItem extends Component {
         <View>
           <CardSection>
             <Text style={styles.titleStyle}>
-              {`${qty} ${name}: 5000`}
+              {`${qty} ${name}: €${qty * price}`}
             </Text>
           </CardSection>
         </View>

@@ -10,3 +10,4 @@ export const COINS_FETCH_SUCCESS = 'coins_fetch_success';
 export const COIN_SAVE_SUCCESS = 'coin_save_success';
 
 export const GET_COIN_INFO = 'get_coin_info';
+export const COIN_FETCH_AND_PRICE_INFO_SUCCESS = 'coin_fetch_and_price_info_success';

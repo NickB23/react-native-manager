@@ -17,6 +17,7 @@ class CoinList extends Component {
     // will be rendered with
     // this.props is still the old set of props
     this.createDataSource(nextProps);
+    console.log(nextProps); //TODO: REMOVE!!
   }
 
   createDataSource({ coins }) {
@@ -28,6 +29,7 @@ class CoinList extends Component {
   }
 
   renderRow(coin) {
+    console.log(coin); // TODO: REMOVE
     return <ListItem coin={coin} />;
     // return <ListItem employee={employee} />;
   }
@@ -51,11 +53,14 @@ class CoinList extends Component {
 }
 
 const mapStateToProps = state => {
-  const coins = _.map(state.coins, (val, uid) => {
-    return { ...val, uid };
-  });
+  const { coins } = state.coins;
 
   return { coins };
+  // const coins = _.map(state.coins, (val, uid) => {
+  //   return { ...val, uid };
+  // });
+  //
+  // return { coins };
 };
 
 export default connect(mapStateToProps, { coinsFetch })(CoinList);
